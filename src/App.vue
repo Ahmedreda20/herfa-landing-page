@@ -1,32 +1,69 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <Header :header="header" />
     <router-view />
+    <Footer :footer="footer" />
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Header from "./layout/Header.vue";
+import Footer from "./layout/Footer.vue";
+export default {
+  data() {
+    return {
+      header: {},
+      footer: {},
+    };
+  },
+  created() {
+    this.CheckCurrentLang(localStorage.getItem("locale"));
+  },
 
-#nav {
-  padding: 30px;
-}
+  methods: {
+    CheckCurrentLang(lang) {
+      const self = this;
+      if (lang) {
+        if (lang === "ar") {
+          this.$router.push("/ar");
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+          self.header = {
+            pages: ["الرئيسية", "اتصل بنا", "كيف تستخدم"],
+            rtl: true,
+            button: "افتح منفذ",
+            locale: "Ar",
+          };
+          self.footer = {
+            pages: ["عن", "التعليمات", "الاحكام والشروط"],
+            rtl: true,
+            right: "افتح منفجميع الحقوق محفوظة حرفة",
+            locale: "Ar",
+          };
+        } else {
+          this.$router.push("/");
+          self.header = {
+            pages: ["Home", "Contact us", "How to use"],
+            rtl: false,
+            button: "Open portal",
+            locale: "En",
+          };
+          self.footer = {
+            pages: ["About", "FAQ", "Terms and Conditions"],
+            rtl: false,
+            right: "All right reserved to handmade",
+            locale: "En",
+          };
+        }
+      } else {
+        localStorage.setItem("locale", "en");
+        window.location.reload();
+      }
+    },
+  },
+  components: {
+    Header,
+    Footer,
+  },
+  name: "App",
+};
+</script>

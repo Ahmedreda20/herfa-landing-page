@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* import google fonts that used inside current design */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
+
+@layer base {
+  *,
+  *::after,
+  *::before {
+    outline: none !important;
+  }
+  html,
+  body,
+  input,
+  textarea,
+  button,
+  select {
+    font-family: "Nunito", "Almarai", sans-serif;
+  }
+
+  html,
+  body {
+    scroll-behavior: smooth;
+  }
+  .dir-right {
+    direction: rtl;
+  }
+  .dir-left {
+    direction: ltr;
+  }
+}
