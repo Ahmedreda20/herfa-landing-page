@@ -36,7 +36,7 @@ export default {
           self.footer = {
             pages: ["عن", "التعليمات", "الاحكام والشروط"],
             rtl: true,
-            right: "افتح منفجميع الحقوق محفوظة حرفة",
+            right: "جميع الحقوق محفوظة لحرفة",
             locale: "Ar",
           };
         } else {

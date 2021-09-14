@@ -166,7 +166,7 @@
         data-aos="fade-down"
         data-aos-duration="1250"
       >
-        <h3 class="text-base relative">© {{ footer.rights }}</h3>
+        <h3 class="text-base relative">© {{ footer.right }}</h3>
         <img
           src="../assets/images/logo.png"
           alt="logo image"
