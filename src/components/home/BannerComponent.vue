@@ -1,5 +1,7 @@
 <template>
-  <section class="w-full bg-green-700 py-20 px-8">
+  <section
+    :class="`w-full bg-green-700 py-20 px-8 ${direction ? 'dir-right' : ''}`"
+  >
     <div
       class="
         xl:container
@@ -23,12 +25,10 @@
             "
             data-aos="fade-up"
           >
-            Great App that makes your life easier
+            {{ $t("banner.title") }}
           </h1>
           <p class="text-lg text-white font-medium mb-10" data-aos="fade-down">
-            Meet Sigma. The simple, intuitive and powerful app to manage your
-            work. Explore app of the next generation for free and become a part
-            of community of like-minded members.
+            {{ $t("banner.content") }}
           </p>
           <div
             class="
@@ -56,14 +56,12 @@
                 flex-row
                 sm:my-0
                 m-2
+                text-white
+                font-medium
                 shadow
               "
             >
-              <img
-                src="@/assets/images/App_Store_logo.png"
-                alt="apple logo"
-                class="w-40 h-10"
-              />
+              {{ $t("banner.buttons.share") }}
             </a>
             <a
               href="#"
@@ -79,16 +77,14 @@
                 justify-center
                 flex-row
                 bg-gray-600
+                text-white
+                font-medium
                 sm:my-0
                 m-2
                 shadow
               "
             >
-              <img
-                src="@/assets/images/Google_play_logo.png"
-                alt="apple logo"
-                class="w-40 h-10"
-              />
+              {{ $t("banner.buttons.discover") }}
             </a>
           </div>
         </div>
@@ -105,7 +101,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    direction: Boolean,
+  },
+};
 </script>
 
 <style>

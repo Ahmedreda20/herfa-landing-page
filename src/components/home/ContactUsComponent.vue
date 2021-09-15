@@ -1,7 +1,6 @@
 <template>
   <div
-    class="
-      w-full
+    :class="`w-full
       pb-20
       pt-6
       xl:container
@@ -10,8 +9,7 @@
       items-center
       justify-center
       flex-col
-      xl:flex-row
-    "
+      xl:flex-row ${direction ? 'dir-right' : ''}`"
   >
     <img
       class="w-full sm:max-w-screen-sm p-10 object-contain"
@@ -25,9 +23,9 @@
         data-aos="fade-up"
         data-aos-duration="1500"
       >
-        Contact us
+        {{ direction ? "اتصل بنا" : "Contact us" }}
       </h1>
-      <ContactForm />
+      <ContactForm :dir="direction" />
     </div>
   </div>
 </template>
@@ -35,6 +33,7 @@
 <script>
 import ContactForm from "@/components/home/ContactForm.vue";
 export default {
+  props: { direction: Boolean },
   components: {
     ContactForm,
   },

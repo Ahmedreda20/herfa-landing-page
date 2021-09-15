@@ -1,19 +1,20 @@
 <template>
   <div
-    class="
-      w-full
+    :class="`w-full
       xl:container
       mx-auto
       p-6
       my-10
       border-b border-gray-300
       pb-20
-      mb-20
-    "
+      mb-20 ${direction ? 'dir-right' : ''}
+    `"
   >
     <h1
       class="
-        text-4xl text-center
+        text-3xl
+        sm:text-4xl
+        text-center
         max-w-screen-sm
         text-gray-500
         font-light
@@ -23,9 +24,7 @@
       data-aos="fade-up"
       data-aos-duration="1500"
     >
-      Explore app of the next generation.
-      <br />
-      Watch the video.
+      {{ $t("video") }}
     </h1>
     <div class="video__box" data-aos="zoom-in" data-aos-duration="1500">
       <button class="play__btn">
@@ -42,6 +41,9 @@
 
 <script>
 export default {
+  props: {
+    direction: Boolean,
+  },
   name: "VideoPlayerComponent",
 };
 </script>

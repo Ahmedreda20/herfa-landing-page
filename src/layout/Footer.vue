@@ -1,7 +1,7 @@
 <template>
   <footer
     :class="`w-full h-auto bg-white p-6 overflow-x-hidden ${
-      footer.rtl ? 'dir-right' : ''
+      dir ? 'dir-right' : ''
     }`"
   >
     <div class="footer__container py-10">
@@ -13,8 +13,6 @@
           src="../assets/images/logo.png"
           alt="logo image"
           class="w-[70px] md:w-[100px] h-[70px] md:h-[100px] mr-4"
-          data-aos="fade-right"
-          data-aos-duration="1250"
         />
         <!-- navBar -->
         <nav class="md:m-0 mt-10">
@@ -27,26 +25,35 @@
               flex-wrap flex-row
             "
           >
-            <li
-              class="mx-6 my-3"
-              v-for="(page, index) in footer.pages"
-              :key="index"
-            >
+            <li class="mx-6 my-3">
               <router-link
                 to="/"
                 class="text-base p-2 font-light"
                 active-class="text-gray-700"
-                data-aos="fade-down"
-                :data-aos-delay="50 * index * 2"
-                data-aos-duration="1250"
-                >{{ page }}</router-link
+                >{{ $t("footer.nav.name_0") }}</router-link
+              >
+            </li>
+            <li class="mx-6 my-3">
+              <router-link
+                to="/"
+                class="text-base p-2 font-light"
+                active-class="text-gray-700"
+                >{{ $t("footer.nav.name_1") }}</router-link
+              >
+            </li>
+            <li class="mx-6 my-3">
+              <router-link
+                to="/"
+                class="text-base p-2 font-light"
+                active-class="text-gray-700"
+                >{{ $t("footer.nav.name_2") }}</router-link
               >
             </li>
           </ul>
         </nav>
       </div>
       <!-- right side component  -->
-      <nav class="lg:m-0 mt-12" data-aos="fade-left" data-aos-duration="1250">
+      <nav class="lg:m-0 mt-12">
         <ul
           class="list-none flex items-center justify-center flex-wrap flex-row"
         >
@@ -165,16 +172,12 @@
           sm:justify-between
           flex-wrap
         "
-        data-aos="fade-down"
-        data-aos-duration="1250"
       >
-        <h3 class="text-base relative">© {{ footer.right }}</h3>
+        <h3 class="text-base relative">© {{ $t("footer.rights") }}</h3>
         <img
           src="../assets/images/logo.png"
           alt="logo image"
           class="w-[70px] h-[70px] m-4"
-          data-aos="fade-left"
-          data-aos-duration="1250"
         />
       </div>
     </div>
@@ -184,7 +187,7 @@
 <script>
 export default {
   props: {
-    footer: {},
+    dir: Boolean,
   },
   name: "Footer",
 };

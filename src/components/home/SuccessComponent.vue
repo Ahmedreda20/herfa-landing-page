@@ -1,7 +1,6 @@
 <template>
   <div
-    class="
-      xl:container
+    :class="`xl:container
       mx-auto
       py-10
       p-6
@@ -10,7 +9,8 @@
       justify-center
       xl:flex-row
       flex-col
-    "
+      ${direction ? 'dir-right' : ''}
+    `"
   >
     <h1
       class="
@@ -25,7 +25,7 @@
       data-aos="fade-up"
       data-aos-duration="1500"
     >
-      Our Success Partners
+      {{ $t("success") }}
     </h1>
     <div
       class="
@@ -52,6 +52,9 @@
 <script>
 import SinglePartner from "./SinglePartner";
 export default {
+  props: {
+    direction: Boolean,
+  },
   components: {
     SinglePartner,
   },

@@ -6,14 +6,14 @@
         data-aos="fade-down"
         data-aos-duration="1500"
       >
-        Download Aqary today
+        {{ $t("download").split(" ").splice(0, 2).join(" ") }}
       </h1>
       <p
         class="text-4xl text-center text-gray-400 mx-auto font-light"
         data-aos="fade-up"
         data-aos-duration="1500"
       >
-        and get started with a free trial for your business
+        {{ $t("download").split(" ").splice(2).join(" ") }}
       </p>
       <div
         class="

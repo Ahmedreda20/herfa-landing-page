@@ -1,7 +1,7 @@
 <template>
   <header
     :class="`w-full h-auto bg-white p-4 sticky top-0 z-10 ${
-      header.rtl ? 'dir-right' : ''
+      dir ? 'dir-right' : ''
     }`"
     ref="header"
   >
@@ -25,12 +25,28 @@
             flex-nowrap flex-row
           "
         >
-          <li class="mx-2" v-for="(page, index) in header.pages" :key="index">
+          <li class="mx-2">
             <router-link
               to="/"
               class="text-base p-2 font-light"
               active-class="text-gray-700"
-              >{{ page }}</router-link
+              >{{ $t("header.nav.name_0") }}</router-link
+            >
+          </li>
+          <li class="mx-2">
+            <router-link
+              to="/"
+              class="text-base p-2 font-light"
+              active-class="text-gray-700"
+              >{{ $t("header.nav.name_1") }}</router-link
+            >
+          </li>
+          <li class="mx-2">
+            <router-link
+              to="/"
+              class="text-base p-2 font-light"
+              active-class="text-gray-700"
+              >{{ $t("header.nav.name_2") }}</router-link
             >
           </li>
         </ul>
@@ -38,7 +54,7 @@
       <!-- right side component  -->
       <div class="w-auto flex items-center justify-cenyer flex-row flex-nowrap">
         <button class="header__btn md:block hidden" aria-label="open portal">
-          {{ header.button }}
+          {{ $t("header.button") }}
         </button>
         <div class="w-auto relative">
           <button
@@ -53,7 +69,7 @@
             "
             @click="handleLanguagesDrop"
           >
-            <span>{{ header.locale }}</span>
+            <span>{{ $i18n.locale }}</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5"
@@ -76,7 +92,7 @@
               aria-label="change lang"
               @click="handleLang('en')"
             >
-              En
+              en
             </button>
             <button
               class="localLang__option"
@@ -84,7 +100,7 @@
               aria-label="change lang"
               @click="handleLang('ar')"
             >
-              Ar
+              ar
             </button>
           </div>
         </div>
@@ -122,7 +138,7 @@
         </button>
       </div>
     </div>
-    <NavBarMd :pages="header.pages" :button="header.button" :active="open" />
+    <NavBarMd :button="$t('header.button')" :active="open" />
   </header>
 </template>
 
@@ -130,7 +146,7 @@
 import NavBarMd from "./NavBarMd.vue";
 export default {
   props: {
-    header: {},
+    dir: Boolean,
   },
   data() {
     return {
@@ -142,12 +158,11 @@ export default {
       const CurrentDrop = this.$refs.LanDropDown;
       CurrentDrop && CurrentDrop.classList.toggle("active");
     },
-
     handleLang(lang) {
       localStorage.setItem("locale", lang);
-      window.location.reload();
-      this.$router.push(`${lang === "ar" ? "/ar" : "/"}`);
-      console.clear();
+      this.$i18n.locale = lang;
+      this.$emit("ChangeDir", lang === "ar" ? true : false);
+      this.handleLanguagesDrop();
     },
     openNav() {
       return this.open ? (this.open = false) : (this.open = true);

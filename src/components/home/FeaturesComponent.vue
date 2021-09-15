@@ -1,19 +1,18 @@
 <template>
-  <div class="w-full pt-24 px-10">
+  <div :class="`w-full pt-24 px-10 ${direction ? 'dir-right' : ''}`">
     <h1
       class="text-3xl text-center text-gray-500 mb-8"
       data-aos="fade-down"
       data-aos-duration="1500"
     >
-      Multiple features of the dashboard
+      {{ $t("features.title") }}
     </h1>
     <p
       class="text-lg text-center text-gray-400 mx-auto max-w-screen-md"
       data-aos="fade-up"
       data-aos-duration="1500"
     >
-      Sigma is a cloud-based mobile and desktop messaging app with a focus on
-      security and speed. You can use it in any platform.
+      {{ $t("features.content") }}
     </p>
 
     <a
@@ -22,7 +21,7 @@
       data-aos="zoom-out"
       data-aos-duration="1500"
     >
-      Open portal
+      {{ $t("features.button") }}
     </a>
 
     <img
@@ -44,7 +43,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: { direction: Boolean },
+};
 </script>
 
 <style>

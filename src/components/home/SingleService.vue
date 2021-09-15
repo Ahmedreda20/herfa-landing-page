@@ -6,7 +6,7 @@
     data-aos-duration="1250"
   >
     <img
-      :src="require('@/assets/images/' + icon)"
+      :src="require('@/assets/products/' + icon)"
       alt="service img"
       class="w-24 h-28 mb-6 object-contain"
     />

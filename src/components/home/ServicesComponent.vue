@@ -1,22 +1,20 @@
 <template>
   <div
-    class="
-      w-full
+    :class="`w-full
       xl:container
       mx-auto
       p-6
       my-10
       border-b border-gray-300
       pb-20
-      mb-20
-    "
+      mb-20 ${direction ? 'dir-right' : ''}`"
   >
     <h1
-      class="text-4xl text-center font-light mx-auto mb-10"
+      class="text-3xl sm:text-4xl text-center font-light mx-auto mb-10"
       data-aos="fade-up"
       data-aos-duration="1500"
     >
-      The The only app you’ll need to find and sell Hand made products
+      {{ $t("products.title") }}
     </h1>
     <div
       class="
@@ -29,25 +27,33 @@
       "
     >
       <SingleService
-        title="Child Fashion"
-        icon="Child_Clothes_Icon.png"
+        :title="$t('products.all.product_0')"
+        icon="فخار.png"
         delay="50"
       />
       <SingleService
-        title="Food & Drinks"
-        icon="Food and drink.png"
+        :title="$t('products.all.product_1')"
+        icon="خياطه.png"
         delay="100"
       />
       <SingleService
-        title="Kitchen Tools"
-        icon="Kitchen tools_2.png"
+        :title="$t('products.all.product_2')"
+        icon="خوص.png"
         delay="150"
       />
-      <SingleService title="Furniture" icon="Furniture_3.png" delay="200" />
-      <SingleService title="Hobby" icon="Guitar.png" delay="250" />
       <SingleService
-        title="Child Fashion"
-        icon="Child_Clothes_Icon.png"
+        :title="$t('products.all.product_3')"
+        icon="خياطة.png"
+        delay="200"
+      />
+      <SingleService
+        :title="$t('products.all.product_4')"
+        icon="دمي.png"
+        delay="250"
+      />
+      <SingleService
+        :title="$t('products.all.product_5')"
+        icon="رسم.png"
         delay="300"
       />
     </div>
@@ -58,6 +64,9 @@
 import SingleService from "./SingleService.vue";
 
 export default {
+  props: {
+    direction: Boolean,
+  },
   components: {
     SingleService,
   },

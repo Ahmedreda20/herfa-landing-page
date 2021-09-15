@@ -1,19 +1,20 @@
 <template>
-  <div class="w-full bg-gray-200/5 pt-24 px-10">
+  <div
+    :class="`w-full bg-gray-200/5 pt-24 px-10 ${direction ? 'dir-right' : ''}`"
+  >
     <h1
       class="text-3xl text-center text-gray-500 mb-8"
       data-aos="fade-down"
       data-aos-duration="1000"
     >
-      App screens
+      {{ $t("screens.title") }}
     </h1>
     <p
       class="text-lg text-center text-gray-400 mx-auto max-w-screen-md"
       data-aos="fade-down"
       data-aos-duration="1000"
     >
-      Sigma is a cloud-based mobile and desktop messaging app with a focus on
-      security and speed. You can use it in any platform.
+      {{ $t("screens.content") }}
     </p>
     <div
       class="
@@ -100,7 +101,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    direction: Boolean,
+  },
+};
 </script>
 
 <style>

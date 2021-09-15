@@ -1,0 +1,72 @@
+{
+    "header":{
+        "nav":{
+            "name_0": "Home",
+            "name_1": "Contact us",
+            "name_2": "How to use"
+        },
+        "button": "Open portal"
+    },
+    "banner":{
+        "title": "Hands made with love",
+        "content": "An application for all craftsman with different crafts to creat Business environment to improve hands made business and delivering to a wide range of clients",
+        "buttons":{
+            "share": "Share with your craft now",
+            "discover":"discover the app"
+        }
+    },
+    "products":{
+        "title": "The best app for hands made things and eazy to purchase .",
+        "all": {
+            "product_0": "Pottery",
+            "product_1": "crochet",
+            "product_2": "wicker",
+            "product_3": "sewing",
+            "product_4": "perfumes",
+            "product_5": "draw"
+        }
+    },
+    "video": "Watch and know more about handesmade app",
+    "how":{
+        "title": "How to use",
+        "items":{
+            "item_0":{
+                "title": "Shop by category",
+                "content":"different store groups of crafts witch made with love "
+            },
+            "item_1":{
+                "title": "Join us now and increase your sales ",
+                "content":"Invest in your hand skills and register your store with us now  Business environment with wide and easy solution in handicraft field"
+            },
+            "item_2":{
+                "title": "Mange your store , follow your operations and managing your sales",
+                "content":"(mange your store and start sell with us )"
+            },
+            "item_3":{
+                "title": "Add your choice of crafts in the basket",
+                "content":"Different types of crafts in one app , easy register ,add crafts ,mange your sales by your store page and find your best selling products"
+            }
+        }
+    },
+    "download": "Download the app and start your business in easily way",
+    "features":{
+        "title": "Multiple features of the dashboard",
+        "content": "An application for all craftsman with different crafts to creat Business environment to improve hands made business and delivering to a wide range of clients",
+        "button": "Open Portal"
+    },
+    "screens":{
+        "title": "App Screens",
+        "content": "Join us now and invest in your friendly skills and take full control of your store"
+    },
+    "success": "Our Success Partners",
+    "footer":{
+        "nav":{
+            "name_0": "About",
+            "name_1": "FAQ",
+            "name_2": "Terms and Conditions"
+        },
+        "rights": "All right reserved to handmade"
+    },
+    "questions": "Have any Questions?",
+    "locale": "en"
+}

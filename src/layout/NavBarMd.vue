@@ -8,12 +8,28 @@
       <ul
         class="list-none flex items-center justify-center flex-nowrap flex-col"
       >
-        <li class="my-2" v-for="(page, index) in pages" :key="index">
+        <li class="m-2">
           <router-link
             to="/"
             class="text-base p-2 font-light"
             active-class="text-gray-700"
-            >{{ page }}</router-link
+            >{{ $t("header.nav.name_0") }}</router-link
+          >
+        </li>
+        <li class="m-2">
+          <router-link
+            to="/"
+            class="text-base p-2 font-light"
+            active-class="text-gray-700"
+            >{{ $t("header.nav.name_1") }}</router-link
+          >
+        </li>
+        <li class="m-2">
+          <router-link
+            to="/"
+            class="text-base p-2 font-light"
+            active-class="text-gray-700"
+            >{{ $t("header.nav.name_2") }}</router-link
           >
         </li>
       </ul>

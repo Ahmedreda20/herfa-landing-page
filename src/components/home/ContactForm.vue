@@ -9,7 +9,9 @@
         required
         class="form__control"
       />
-      <label for="name" class="form__label">Name</label>
+      <label for="name" :class="`form__label ${dir ? 'right-6 left-0' : ''}`">{{
+        dir ? "الاسم" : "Name"
+      }}</label>
     </div>
     <div class="form__group" data-aos="fade-down" data-aos-duration="1500">
       <input
@@ -20,7 +22,11 @@
         required
         class="form__control"
       />
-      <label for="email" class="form__label">Email</label>
+      <label
+        for="email"
+        :class="`form__label ${dir ? 'right-6 left-0' : ''}`"
+        >{{ dir ? "البريد الالكتروني" : "Email" }}</label
+      >
     </div>
     <div class="form__group" data-aos="fade-up" data-aos-duration="1500">
       <input
@@ -31,7 +37,11 @@
         required
         class="form__control"
       />
-      <label for="subject" class="form__label">Your message subject</label>
+      <label
+        for="subject"
+        :class="`form__label ${dir ? 'right-6 left-0' : ''}`"
+        >{{ dir ? "عنوان الرسالة" : "Your message subject" }}</label
+      >
     </div>
     <div class="form__group" data-aos="fade-down" data-aos-duration="1500">
       <textarea
@@ -41,11 +51,13 @@
         required
         class="form__control min-h-[150px]"
       ></textarea>
-      <label for="message" class="form__label">Your message </label>
+      <label for="message" :class="`form__label ${dir ? 'right-6 left-0' : ''}`"
+        >{{ dir ? "الرسالة" : "Your message" }}
+      </label>
     </div>
     <div class="form__group" data-aos="fade-left" data-aos-duration="1500">
       <button class="submit__btn" aria-label="submit button" type="submit">
-        Send
+        {{ dir ? "ارسال" : "Send" }}
       </button>
     </div>
   </form>
@@ -53,13 +65,14 @@
 
 <script>
 export default {
+  props: { dir: Boolean },
   name: "ContactForm",
 };
 </script>
 
 <style>
 .form__label {
-  @apply absolute top-3 text-xl left-6 transition-all text-gray-400;
+  @apply absolute top-3 text-xl left-6 transition-all text-gray-400 table;
 }
 .form__control {
   @apply w-full

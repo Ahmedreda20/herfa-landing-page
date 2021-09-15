@@ -1,8 +1,14 @@
 <template>
-  <div class="w-full xl:container mx-auto p-6 my-10 pb-20">
+  <div
+    :class="`w-full xl:container mx-auto p-6 my-10 pb-20 ${
+      direction ? 'dir-right' : ''
+    }`"
+  >
     <h1
       class="
-        text-4xl text-center
+        text-3xl
+        sm:text-4xl
+        text-center
         max-w-screen-sm
         text-gray-500
         font-light
@@ -12,13 +18,13 @@
       data-aos="fade-down"
       data-aos-duration="1500"
     >
-      Have any Questions?
+      {{ $t("questions") }}
     </h1>
     <div class="mb-10 w-full" data-aos="zoom-out" data-aos-duration="1500">
       <SingleQuestion
         :questions="questionsList"
         :icons="icons"
-        :animations="animations"
+        :direction="direction"
       />
     </div>
     <button
@@ -39,7 +45,7 @@
       data-aos-duration="1500"
       @click="handleQuestions"
     >
-      Read more
+      {{ direction ? "اقرأ اكثر" : "Read more" }}
     </button>
   </div>
 </template>
@@ -47,13 +53,13 @@
 <script>
 import SingleQuestion from "./SingleQuestion.vue";
 export default {
+  props: { direction: Boolean },
   data() {
     return {
       questions: [],
       questionsList: [],
       questionsItem: 6,
       icons: [],
-      animations: [],
     };
   },
   created() {
@@ -72,7 +78,6 @@ export default {
         "q-pink.svg",
         "q-yellow.svg",
       ];
-      const Animates = ["fade-up-right", "fade-up-left"];
       data.then(({ result }) => {
         const length = result.help[0].questions.length;
 
@@ -82,11 +87,6 @@ export default {
         // create icons to match all questions;
         const newIcons = Array(length).fill(Icons).flat().slice(0, length);
         self.icons = newIcons;
-        const newAnimates = Array(length)
-          .fill(Animates)
-          .flat()
-          .slice(0, length);
-        self.animations = newAnimates;
       });
     },
     pushQuestionsInsideTheirList() {

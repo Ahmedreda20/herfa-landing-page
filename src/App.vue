@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header :header="header" />
+    <Header :dir="dir" @ChangeDir="handleDirections" />
     <router-view />
-    <Footer :footer="footer" />
+    <Footer :dir="dir" />
   </div>
 </template>
 
@@ -12,52 +12,19 @@ import Footer from "./layout/Footer.vue";
 export default {
   data() {
     return {
-      header: {},
-      footer: {},
+      dir: false, // false as default value
     };
   },
   created() {
-    this.CheckCurrentLang(localStorage.getItem("locale"));
+    this.CheckCurrentLang(localStorage.getItem("locale") || "en");
   },
 
   methods: {
     CheckCurrentLang(lang) {
-      const self = this;
-      if (lang) {
-        if (lang === "ar") {
-          this.$router.push("/ar");
-
-          self.header = {
-            pages: ["الرئيسية", "اتصل بنا", "كيف تستخدم"],
-            rtl: true,
-            button: "افتح منفذ",
-            locale: "Ar",
-          };
-          self.footer = {
-            pages: ["عن", "التعليمات", "الاحكام والشروط"],
-            rtl: true,
-            right: "جميع الحقوق محفوظة لحرفة",
-            locale: "Ar",
-          };
-        } else {
-          this.$router.push("/");
-          self.header = {
-            pages: ["Home", "Contact us", "How to use"],
-            rtl: false,
-            button: "Open portal",
-            locale: "En",
-          };
-          self.footer = {
-            pages: ["About", "FAQ", "Terms and Conditions"],
-            rtl: false,
-            right: "All right reserved to handmade",
-            locale: "En",
-          };
-        }
-      } else {
-        localStorage.setItem("locale", "en");
-        window.location.reload();
-      }
+      lang === "en" ? (this.dir = false) : (this.dir = true);
+    },
+    handleDirections(val) {
+      this.dir = val;
     },
   },
   components: {
