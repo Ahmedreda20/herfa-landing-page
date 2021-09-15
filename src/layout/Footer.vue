@@ -1,6 +1,8 @@
 <template>
   <footer
-    :class="`w-full h-auto bg-white p-6 ${footer.rtl ? 'dir-right' : ''}`"
+    :class="`w-full h-auto bg-white p-6 overflow-x-hidden ${
+      footer.rtl ? 'dir-right' : ''
+    }`"
   >
     <div class="footer__container py-10">
       <!-- header logo -->

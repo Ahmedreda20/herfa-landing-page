@@ -7,6 +7,7 @@
     <AppScreenComponent />
     <FeaturesComponent />
     <QuestionsComponent />
+    <SuccessComponent />
     <ContactUsComponent />
     <RewayaComnponent />
   </div>
@@ -20,6 +21,7 @@ import HowToComponent from "@/components/home/HowToComponent.vue";
 import AppScreenComponent from "@/components/home/AppScreenComponent.vue";
 import FeaturesComponent from "@/components/home/FeaturesComponent.vue";
 import QuestionsComponent from "@/components/home/QuestionsComponent.vue";
+import SuccessComponent from "@/components/home/SuccessComponent.vue";
 import ContactUsComponent from "@/components/home/ContactUsComponent.vue";
 import RewayaComnponent from "@/components/home/RewayaComnponent.vue";
 
@@ -31,8 +33,9 @@ export default {
     VideoPlayerComponent,
     HowToComponent,
     AppScreenComponent,
-    QuestionsComponent,
     FeaturesComponent,
+    QuestionsComponent,
+    SuccessComponent,
     ContactUsComponent,
     RewayaComnponent,
   },
