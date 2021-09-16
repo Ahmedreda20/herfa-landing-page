@@ -26,20 +26,8 @@ import ContactUsComponent from "@/components/home/ContactUsComponent.vue";
 import RewayaComnponent from "@/components/home/RewayaComnponent.vue";
 
 export default {
-  data() {
-    return {
-      dir: false, // false as default value
-    };
-  },
-  created() {
-    this.CheckCurrentLang(localStorage.getItem("locale") || "en");
-  },
-
-  methods: {
-    CheckCurrentLang(lang) {
-      lang === "en" ? (this.dir = false) : (this.dir = true);
-    },
-  },
+  props:{dir: Boolean},
+  
   name: "Home",
   components: {
     BannerComponent,

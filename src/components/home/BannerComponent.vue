@@ -1,6 +1,6 @@
 <template>
   <section
-    :class="`w-full bg-green-700 py-20 px-8 ${direction ? 'dir-right' : ''}`"
+    :class="`w-full bg-green-700 py-20 px-8 ${direction ? 'dir-right text-right' : ''}`"
   >
     <div
       class="

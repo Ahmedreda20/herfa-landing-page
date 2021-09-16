@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header :dir="dir" @ChangeDir="handleDirections" />
-    <router-view />
+    <router-view :dir="dir" />
     <Footer :dir="dir" />
   </div>
 </template>

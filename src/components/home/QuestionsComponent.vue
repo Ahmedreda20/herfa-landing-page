@@ -41,8 +41,6 @@
       "
       type="button"
       aria-label="load more querstions"
-      data-aos="zoom-in"
-      data-aos-duration="1500"
       @click="handleQuestions"
     >
       {{ direction ? "اقرأ اكثر" : "Read more" }}
